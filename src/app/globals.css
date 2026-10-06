@@ -79,3 +79,9 @@
   .aspect-product { aspect-ratio: 4 / 5; }
   .aspect-square-cc { aspect-ratio: 1 / 1; }
 }
+
+/* Scroll-driven hero: minimal loading shimmer line. */
+@keyframes heroShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
