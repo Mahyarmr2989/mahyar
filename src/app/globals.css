@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-text: #222222;
+  --color-muted: #6b6b6b;
+  --color-border: #e8e8e8;
+  --color-sage: #4a5d57;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+  ::selection {
+    background: #4a5d57;
+    color: #fff;
+  }
+  /* Refined focus ring */
+  :focus-visible {
+    outline: 2px solid #4a5d57;
+    outline-offset: 2px;
+  }
+  /* Hide scrollbar utility for horizontal scrollers */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer components {
+  .container-cc {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply text-[11px] font-sans uppercase tracking-[0.22em] text-charcoal-muted;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-sans text-[13px] font-medium tracking-[0.04em] uppercase transition-all duration-300 ease-elegant disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-charcoal text-white px-8 py-3.5 hover:bg-sage-600;
+  }
+  .btn-outline {
+    @apply btn bg-transparent text-charcoal border border-charcoal px-8 py-3.5 hover:bg-charcoal hover:text-white;
+  }
+  .btn-ghost {
+    @apply btn text-charcoal underline underline-offset-4 decoration-1 hover:text-sage-600 px-1 py-1;
+  }
+  .card-surface {
+    @apply bg-white border border-ivory-200 rounded-sm;
+  }
+  .link-underline {
+    @apply relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .aspect-product { aspect-ratio: 4 / 5; }
+  .aspect-square-cc { aspect-ratio: 1 / 1; }
+}
